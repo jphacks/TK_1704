@@ -1,5 +1,6 @@
 import UIKit
 import SnapKit
+import SwiftyUserDefaults
 
 class TopVC: UIViewController{
     let model = MotionModel()
@@ -101,9 +102,25 @@ class TopVC: UIViewController{
     }
     
     @objc func joinDidTap() {
-        let nv = UINavigationController(rootViewController: SelectLiveVC())
-        present(nv, animated: true)
+        if Defaults[.userName] != "" {
+            let nv = UINavigationController(rootViewController: SelectLiveVC())
+            present(nv, animated: true)
+        } else {
+            
+            let alert: UIAlertController = UIAlertController(title: "", message: "なまえを設定してね", preferredStyle:  UIAlertControllerStyle.alert)
+            
+            let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
+                // ボタンが押された時の処理を書く（クロージャ実装）
+                (action: UIAlertAction!) -> Void in
+                self.nameDidTap()
+            })
+            
+            alert.addAction(defaultAction)
+            
+            present(alert, animated: true, completion: nil)
+        }
     }
+        
     
     @objc func nameDidTap() {
         let nv = UINavigationController(rootViewController: EditNameVC())
