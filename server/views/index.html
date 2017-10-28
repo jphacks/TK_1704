@@ -59,11 +59,69 @@
     <input id="m" autocomplete="off" />
     <button>Send</button>
   </form>
+  <button id="btn2">server_from_app</button>
+  <p id="#p1"></p>
   <script src="/socket.io/socket.io.js"></script>
   <script src="https://code.jquery.com/jquery-3.1.1.slim.js" integrity="sha256-5i/mQ300M779N2OVDrl16lbohwXNUdzL/R2aVUXyXWA="
     crossorigin="anonymous"></script>
   <script>
+    const rooms = [
+      'red',
+      'yellow',
+      'pink',
+      'green',
+      'purple'
+    ];
+    const color = rooms[Math.floor(Math.random() * rooms.length)];
+    console.log('color', color);
+    const userName = 'shota';
+    const userId = 'thisisuniqueid';
+
+
     const socket = io();
+
+    // サーバーとツナ型
+    socket.on('connect', () => {
+      console.log('connected!!!');
+
+      const data = {
+        user: {
+          color: color,
+          id: userId
+        }
+      };
+      console.log('join_room', data);
+      // room に入る
+      socket.emit('join_room', data);
+    });
+
+    $('#btn2').click(() => {
+      const data = {
+        user: {
+          id: userId,
+          name: userName,
+          color: color,
+        },
+        score: {
+          all: 1345,
+          duration: 13
+        },
+        action: {
+          type: 'vertical',
+          strength: 3
+        }
+      };
+      console.log('server_from_app', data);
+      // アプリから加速度データが送られる
+      socket.emit('server_from_app', data);
+    });
+
+    socket.on('app_to_server', (data) => {
+      // const data = JSON.parse(json);
+      console.log('app_to_server', data);
+    });
+
+
     $('form').submit(() => {
       socket.emit('app', $('#m').val());
       $('#m').val('');

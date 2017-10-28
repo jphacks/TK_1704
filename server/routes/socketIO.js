@@ -14,12 +14,49 @@ const io = require('socket.io')(server);
 function socketIO() {
   //サーバーを立ち上げたら実行
   server.listen(app.get('port'), function () {
-    console.log('listening!!!');
+    console.log('listening 2017 !!!');
   });
 
-  //socket処理を記載する
+
+  // socket の接続
   io.on('connection', (socket) => {
     console.log('a user connected');
+    console.log('connections: ', socket.client.conn.server.clientsCount);
+
+    // room に入る
+    socket.on('join_room', (msg) => {
+      console.log(msg);
+      room = msg.room;
+      socket.join(room);
+    });
+
+    // アプリからサーバーへのアクションデータを取得
+    socket.on('server_from_app', (msg) => {
+      const { all, duration } = msg.score;
+      const { id, name, color } = msg.user;
+
+      const order = 1; // 所属している色の順番
+
+      const data = {
+        user: {
+          color,
+          order
+        },
+        action: {
+          type: 'order',
+          data: [
+            'pink',
+            'yellow',
+            'red',
+            'purple',
+            'green'
+          ]
+        }
+      };
+
+      // 同じ内容を同じルームの人に送る
+      io.sockets.in(room).emit('app_to_server', data);
+    });
 
     //socket処理
     socket.on('app', (msg) => {
