@@ -12,6 +12,7 @@
 		AEBC3B4E4A59A7B8C51F4C0E /* Pods_PowerofusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E90237D8EFFC04935D4E7D /* Pods_PowerofusUITests.framework */; };
 		DB29C3FE1FA48731007F794C /* EditNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29C3FD1FA48731007F794C /* EditNameVC.swift */; };
 		DB29C4001FA49413007F794C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29C3FF1FA49412007F794C /* Alert.swift */; };
+		DB29C4021FA4B894007F794C /* TrainingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29C4011FA4B894007F794C /* TrainingVC.swift */; };
 		DBC58C601FA4366100143F37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC58C5F1FA4366100143F37 /* AppDelegate.swift */; };
 		DBC58C671FA4366100143F37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBC58C661FA4366100143F37 /* Assets.xcassets */; };
 		DBC58C6A1FA4366100143F37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC58C681FA4366100143F37 /* LaunchScreen.storyboard */; };
@@ -52,6 +53,7 @@
 		34E90237D8EFFC04935D4E7D /* Pods_PowerofusUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PowerofusUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB29C3FD1FA48731007F794C /* EditNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNameVC.swift; sourceTree = "<group>"; };
 		DB29C3FF1FA49412007F794C /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		DB29C4011FA4B894007F794C /* TrainingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingVC.swift; sourceTree = "<group>"; };
 		DBC58C5C1FA4366100143F37 /* Powerofus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Powerofus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBC58C5F1FA4366100143F37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBC58C661FA4366100143F37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				DBEBB86B1FA4592F004B93B0 /* SelectLiveVC.swift */,
 				DBEBB86D1FA46749004B93B0 /* QRcodeReaderVC.swift */,
 				DB29C3FD1FA48731007F794C /* EditNameVC.swift */,
+				DB29C4011FA4B894007F794C /* TrainingVC.swift */,
 			);
 			path = VIewController;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				DBC58C601FA4366100143F37 /* AppDelegate.swift in Sources */,
 				DBEBB86E1FA46749004B93B0 /* QRcodeReaderVC.swift in Sources */,
 				DBC58C921FA437EB00143F37 /* SocketModel.swift in Sources */,
+				DB29C4021FA4B894007F794C /* TrainingVC.swift in Sources */,
 				DB29C3FE1FA48731007F794C /* EditNameVC.swift in Sources */,
 				DBC58C971FA445A400143F37 /* Constant.swift in Sources */,
 				DBC58C951FA4382000143F37 /* TopVC.swift in Sources */,
