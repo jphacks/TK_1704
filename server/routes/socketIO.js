@@ -23,11 +23,11 @@ function socketIO() {
     console.log('a user connected');
     console.log('connections: ', socket.client.conn.server.clientsCount);
 
-    // room に入る
+    // 色ごとの部屋に別ける
     socket.on('join_room', (msg) => {
       console.log(msg);
-      room = msg.room;
-      socket.join(room);
+      color = msg.user.color;
+      socket.join(color);
     });
 
     // アプリからサーバーへのアクションデータを取得
@@ -54,8 +54,10 @@ function socketIO() {
         }
       };
 
+      console.log('app_from_server', data)
+
       // 同じ内容を同じルームの人に送る
-      io.sockets.in(room).emit('app_to_server', data);
+      io.in(color).emit('app_from_server', data);
     });
 
     //socket処理

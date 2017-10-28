@@ -90,7 +90,7 @@
           id: userId
         }
       };
-      console.log('join_room', data);
+      console.log('join_room_data', data);
       // room に入る
       socket.emit('join_room', data);
     });
@@ -111,14 +111,14 @@
           strength: 3
         }
       };
-      console.log('server_from_app', data);
+      console.log('server_from_app_data', data);
       // アプリから加速度データが送られる
       socket.emit('server_from_app', data);
     });
 
-    socket.on('app_to_server', (data) => {
+    socket.on('app_from_server', (data) => {
       // const data = JSON.parse(json);
-      console.log('app_to_server', data);
+      console.log('app_from_server', data);
     });
 
 
