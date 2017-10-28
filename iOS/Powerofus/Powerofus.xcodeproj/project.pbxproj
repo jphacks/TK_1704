@@ -1,0 +1,786 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3760C3ABCADD028969587870 /* Pods_Powerofus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E9682E4845EB6A0600DB5F /* Pods_Powerofus.framework */; };
+		674F4C397D6678DB6503F0E8 /* Pods_PowerofusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEF0C108F5AAFE5EAC1938AC /* Pods_PowerofusTests.framework */; };
+		AEBC3B4E4A59A7B8C51F4C0E /* Pods_PowerofusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E90237D8EFFC04935D4E7D /* Pods_PowerofusUITests.framework */; };
+		DBC58C601FA4366100143F37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC58C5F1FA4366100143F37 /* AppDelegate.swift */; };
+		DBC58C671FA4366100143F37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBC58C661FA4366100143F37 /* Assets.xcassets */; };
+		DBC58C6A1FA4366100143F37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC58C681FA4366100143F37 /* LaunchScreen.storyboard */; };
+		DBC58C751FA4366100143F37 /* PowerofusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC58C741FA4366100143F37 /* PowerofusTests.swift */; };
+		DBC58C801FA4366100143F37 /* PowerofusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC58C7F1FA4366100143F37 /* PowerofusUITests.swift */; };
+		DBC58C901FA437D100143F37 /* MotionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC58C8F1FA437D100143F37 /* MotionModel.swift */; };
+		DBC58C921FA437EB00143F37 /* SocketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC58C911FA437EB00143F37 /* SocketModel.swift */; };
+		DBC58C951FA4382000143F37 /* TopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC58C941FA4382000143F37 /* TopVC.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DBC58C711FA4366100143F37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBC58C541FA4366000143F37 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBC58C5B1FA4366100143F37;
+			remoteInfo = Powerofus;
+		};
+		DBC58C7C1FA4366100143F37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBC58C541FA4366000143F37 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBC58C5B1FA4366100143F37;
+			remoteInfo = Powerofus;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		052F399E102188F1390DB039 /* Pods-PowerofusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerofusTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PowerofusTests/Pods-PowerofusTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1C86D9D8106DAAE6A8223BFD /* Pods-Powerofus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Powerofus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Powerofus/Pods-Powerofus.release.xcconfig"; sourceTree = "<group>"; };
+		21D04F1B939E04F1552A6FC3 /* Pods-Powerofus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Powerofus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Powerofus/Pods-Powerofus.debug.xcconfig"; sourceTree = "<group>"; };
+		27E9682E4845EB6A0600DB5F /* Pods_Powerofus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Powerofus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CAE6DD08A6141EAEABD78BD /* Pods-PowerofusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerofusTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PowerofusTests/Pods-PowerofusTests.release.xcconfig"; sourceTree = "<group>"; };
+		2F63A896CC0223324F5CFD23 /* Pods-PowerofusUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerofusUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PowerofusUITests/Pods-PowerofusUITests.release.xcconfig"; sourceTree = "<group>"; };
+		34E90237D8EFFC04935D4E7D /* Pods_PowerofusUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PowerofusUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBC58C5C1FA4366100143F37 /* Powerofus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Powerofus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBC58C5F1FA4366100143F37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DBC58C661FA4366100143F37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DBC58C691FA4366100143F37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DBC58C6B1FA4366100143F37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBC58C701FA4366100143F37 /* PowerofusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PowerofusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBC58C741FA4366100143F37 /* PowerofusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerofusTests.swift; sourceTree = "<group>"; };
+		DBC58C761FA4366100143F37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBC58C7B1FA4366100143F37 /* PowerofusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PowerofusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBC58C7F1FA4366100143F37 /* PowerofusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerofusUITests.swift; sourceTree = "<group>"; };
+		DBC58C811FA4366100143F37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBC58C8F1FA437D100143F37 /* MotionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionModel.swift; sourceTree = "<group>"; };
+		DBC58C911FA437EB00143F37 /* SocketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketModel.swift; sourceTree = "<group>"; };
+		DBC58C941FA4382000143F37 /* TopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVC.swift; sourceTree = "<group>"; };
+		DEF0C108F5AAFE5EAC1938AC /* Pods_PowerofusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PowerofusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0923A883D4D35926C666DFB /* Pods-PowerofusUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerofusUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PowerofusUITests/Pods-PowerofusUITests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DBC58C591FA4366100143F37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3760C3ABCADD028969587870 /* Pods_Powerofus.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBC58C6D1FA4366100143F37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				674F4C397D6678DB6503F0E8 /* Pods_PowerofusTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBC58C781FA4366100143F37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEBC3B4E4A59A7B8C51F4C0E /* Pods_PowerofusUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F56AE51B95594FE733CA1B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				21D04F1B939E04F1552A6FC3 /* Pods-Powerofus.debug.xcconfig */,
+				1C86D9D8106DAAE6A8223BFD /* Pods-Powerofus.release.xcconfig */,
+				052F399E102188F1390DB039 /* Pods-PowerofusTests.debug.xcconfig */,
+				2CAE6DD08A6141EAEABD78BD /* Pods-PowerofusTests.release.xcconfig */,
+				F0923A883D4D35926C666DFB /* Pods-PowerofusUITests.debug.xcconfig */,
+				2F63A896CC0223324F5CFD23 /* Pods-PowerofusUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9851F8EA56D061C57222F327 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27E9682E4845EB6A0600DB5F /* Pods_Powerofus.framework */,
+				DEF0C108F5AAFE5EAC1938AC /* Pods_PowerofusTests.framework */,
+				34E90237D8EFFC04935D4E7D /* Pods_PowerofusUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DBC58C531FA4366000143F37 = {
+			isa = PBXGroup;
+			children = (
+				DBC58C5E1FA4366100143F37 /* Powerofus */,
+				DBC58C731FA4366100143F37 /* PowerofusTests */,
+				DBC58C7E1FA4366100143F37 /* PowerofusUITests */,
+				DBC58C5D1FA4366100143F37 /* Products */,
+				2F56AE51B95594FE733CA1B6 /* Pods */,
+				9851F8EA56D061C57222F327 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DBC58C5D1FA4366100143F37 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DBC58C5C1FA4366100143F37 /* Powerofus.app */,
+				DBC58C701FA4366100143F37 /* PowerofusTests.xctest */,
+				DBC58C7B1FA4366100143F37 /* PowerofusUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DBC58C5E1FA4366100143F37 /* Powerofus */ = {
+			isa = PBXGroup;
+			children = (
+				DBC58C8D1FA4376100143F37 /* Model */,
+				DBC58C8E1FA4376A00143F37 /* VIewController */,
+				DBC58C5F1FA4366100143F37 /* AppDelegate.swift */,
+				DBC58C661FA4366100143F37 /* Assets.xcassets */,
+				DBC58C681FA4366100143F37 /* LaunchScreen.storyboard */,
+				DBC58C6B1FA4366100143F37 /* Info.plist */,
+			);
+			path = Powerofus;
+			sourceTree = "<group>";
+		};
+		DBC58C731FA4366100143F37 /* PowerofusTests */ = {
+			isa = PBXGroup;
+			children = (
+				DBC58C741FA4366100143F37 /* PowerofusTests.swift */,
+				DBC58C761FA4366100143F37 /* Info.plist */,
+			);
+			path = PowerofusTests;
+			sourceTree = "<group>";
+		};
+		DBC58C7E1FA4366100143F37 /* PowerofusUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DBC58C7F1FA4366100143F37 /* PowerofusUITests.swift */,
+				DBC58C811FA4366100143F37 /* Info.plist */,
+			);
+			path = PowerofusUITests;
+			sourceTree = "<group>";
+		};
+		DBC58C8D1FA4376100143F37 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DBC58C8F1FA437D100143F37 /* MotionModel.swift */,
+				DBC58C911FA437EB00143F37 /* SocketModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DBC58C8E1FA4376A00143F37 /* VIewController */ = {
+			isa = PBXGroup;
+			children = (
+				DBC58C941FA4382000143F37 /* TopVC.swift */,
+			);
+			path = VIewController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DBC58C5B1FA4366100143F37 /* Powerofus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBC58C841FA4366100143F37 /* Build configuration list for PBXNativeTarget "Powerofus" */;
+			buildPhases = (
+				F03C42451D1668F9F852917B /* [CP] Check Pods Manifest.lock */,
+				DBC58C581FA4366100143F37 /* Sources */,
+				DBC58C591FA4366100143F37 /* Frameworks */,
+				DBC58C5A1FA4366100143F37 /* Resources */,
+				1CC4E13BCC5313688E7A5DEC /* [CP] Embed Pods Frameworks */,
+				737C8AD58AD7747AABEEDD31 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Powerofus;
+			productName = Powerofus;
+			productReference = DBC58C5C1FA4366100143F37 /* Powerofus.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DBC58C6F1FA4366100143F37 /* PowerofusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBC58C871FA4366100143F37 /* Build configuration list for PBXNativeTarget "PowerofusTests" */;
+			buildPhases = (
+				FD474CAFE7E9C5F09BD97166 /* [CP] Check Pods Manifest.lock */,
+				DBC58C6C1FA4366100143F37 /* Sources */,
+				DBC58C6D1FA4366100143F37 /* Frameworks */,
+				DBC58C6E1FA4366100143F37 /* Resources */,
+				2A0CE8593E9A93F184E0E392 /* [CP] Embed Pods Frameworks */,
+				F1D612CFD8451FFFEEE3B57F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DBC58C721FA4366100143F37 /* PBXTargetDependency */,
+			);
+			name = PowerofusTests;
+			productName = PowerofusTests;
+			productReference = DBC58C701FA4366100143F37 /* PowerofusTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DBC58C7A1FA4366100143F37 /* PowerofusUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBC58C8A1FA4366100143F37 /* Build configuration list for PBXNativeTarget "PowerofusUITests" */;
+			buildPhases = (
+				CC7E739EB8D3FE6612D0F00B /* [CP] Check Pods Manifest.lock */,
+				DBC58C771FA4366100143F37 /* Sources */,
+				DBC58C781FA4366100143F37 /* Frameworks */,
+				DBC58C791FA4366100143F37 /* Resources */,
+				820E83B18AEE849572333B05 /* [CP] Embed Pods Frameworks */,
+				586054D063219536E38AAD7F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DBC58C7D1FA4366100143F37 /* PBXTargetDependency */,
+			);
+			name = PowerofusUITests;
+			productName = PowerofusUITests;
+			productReference = DBC58C7B1FA4366100143F37 /* PowerofusUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DBC58C541FA4366000143F37 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Iko Nakari";
+				TargetAttributes = {
+					DBC58C5B1FA4366100143F37 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+					DBC58C6F1FA4366100143F37 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DBC58C5B1FA4366100143F37;
+					};
+					DBC58C7A1FA4366100143F37 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DBC58C5B1FA4366100143F37;
+					};
+				};
+			};
+			buildConfigurationList = DBC58C571FA4366000143F37 /* Build configuration list for PBXProject "Powerofus" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DBC58C531FA4366000143F37;
+			productRefGroup = DBC58C5D1FA4366100143F37 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DBC58C5B1FA4366100143F37 /* Powerofus */,
+				DBC58C6F1FA4366100143F37 /* PowerofusTests */,
+				DBC58C7A1FA4366100143F37 /* PowerofusUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DBC58C5A1FA4366100143F37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBC58C6A1FA4366100143F37 /* LaunchScreen.storyboard in Resources */,
+				DBC58C671FA4366100143F37 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBC58C6E1FA4366100143F37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBC58C791FA4366100143F37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1CC4E13BCC5313688E7A5DEC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Powerofus/Pods-Powerofus-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Powerofus/Pods-Powerofus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A0CE8593E9A93F184E0E392 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PowerofusTests/Pods-PowerofusTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		586054D063219536E38AAD7F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PowerofusUITests/Pods-PowerofusUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		737C8AD58AD7747AABEEDD31 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Powerofus/Pods-Powerofus-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		820E83B18AEE849572333B05 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PowerofusUITests/Pods-PowerofusUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC7E739EB8D3FE6612D0F00B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PowerofusUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F03C42451D1668F9F852917B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Powerofus-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1D612CFD8451FFFEEE3B57F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PowerofusTests/Pods-PowerofusTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD474CAFE7E9C5F09BD97166 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PowerofusTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DBC58C581FA4366100143F37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBC58C601FA4366100143F37 /* AppDelegate.swift in Sources */,
+				DBC58C921FA437EB00143F37 /* SocketModel.swift in Sources */,
+				DBC58C951FA4382000143F37 /* TopVC.swift in Sources */,
+				DBC58C901FA437D100143F37 /* MotionModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBC58C6C1FA4366100143F37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBC58C751FA4366100143F37 /* PowerofusTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBC58C771FA4366100143F37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBC58C801FA4366100143F37 /* PowerofusUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DBC58C721FA4366100143F37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBC58C5B1FA4366100143F37 /* Powerofus */;
+			targetProxy = DBC58C711FA4366100143F37 /* PBXContainerItemProxy */;
+		};
+		DBC58C7D1FA4366100143F37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBC58C5B1FA4366100143F37 /* Powerofus */;
+			targetProxy = DBC58C7C1FA4366100143F37 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DBC58C681FA4366100143F37 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DBC58C691FA4366100143F37 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DBC58C821FA4366100143F37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DBC58C831FA4366100143F37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DBC58C851FA4366100143F37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21D04F1B939E04F1552A6FC3 /* Pods-Powerofus.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 893D7556GH;
+				INFOPLIST_FILE = Powerofus/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.beach3dals.Powerofus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DBC58C861FA4366100143F37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C86D9D8106DAAE6A8223BFD /* Pods-Powerofus.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 893D7556GH;
+				INFOPLIST_FILE = Powerofus/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.beach3dals.Powerofus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DBC58C881FA4366100143F37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 052F399E102188F1390DB039 /* Pods-PowerofusTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 893D7556GH;
+				INFOPLIST_FILE = PowerofusTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.beach3dals.PowerofusTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Powerofus.app/Powerofus";
+			};
+			name = Debug;
+		};
+		DBC58C891FA4366100143F37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CAE6DD08A6141EAEABD78BD /* Pods-PowerofusTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 893D7556GH;
+				INFOPLIST_FILE = PowerofusTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.beach3dals.PowerofusTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Powerofus.app/Powerofus";
+			};
+			name = Release;
+		};
+		DBC58C8B1FA4366100143F37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0923A883D4D35926C666DFB /* Pods-PowerofusUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 893D7556GH;
+				INFOPLIST_FILE = PowerofusUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.beach3dals.PowerofusUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Powerofus;
+			};
+			name = Debug;
+		};
+		DBC58C8C1FA4366100143F37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F63A896CC0223324F5CFD23 /* Pods-PowerofusUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 893D7556GH;
+				INFOPLIST_FILE = PowerofusUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.beach3dals.PowerofusUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Powerofus;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DBC58C571FA4366000143F37 /* Build configuration list for PBXProject "Powerofus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBC58C821FA4366100143F37 /* Debug */,
+				DBC58C831FA4366100143F37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBC58C841FA4366100143F37 /* Build configuration list for PBXNativeTarget "Powerofus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBC58C851FA4366100143F37 /* Debug */,
+				DBC58C861FA4366100143F37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBC58C871FA4366100143F37 /* Build configuration list for PBXNativeTarget "PowerofusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBC58C881FA4366100143F37 /* Debug */,
+				DBC58C891FA4366100143F37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBC58C8A1FA4366100143F37 /* Build configuration list for PBXNativeTarget "PowerofusUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBC58C8B1FA4366100143F37 /* Debug */,
+				DBC58C8C1FA4366100143F37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DBC58C541FA4366000143F37 /* Project object */;
+}
