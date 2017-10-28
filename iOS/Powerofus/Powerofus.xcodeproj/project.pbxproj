@@ -10,6 +10,7 @@
 		3760C3ABCADD028969587870 /* Pods_Powerofus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E9682E4845EB6A0600DB5F /* Pods_Powerofus.framework */; };
 		674F4C397D6678DB6503F0E8 /* Pods_PowerofusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEF0C108F5AAFE5EAC1938AC /* Pods_PowerofusTests.framework */; };
 		AEBC3B4E4A59A7B8C51F4C0E /* Pods_PowerofusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E90237D8EFFC04935D4E7D /* Pods_PowerofusUITests.framework */; };
+		DB29C3FE1FA48731007F794C /* EditNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29C3FD1FA48731007F794C /* EditNameVC.swift */; };
 		DBC58C601FA4366100143F37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC58C5F1FA4366100143F37 /* AppDelegate.swift */; };
 		DBC58C671FA4366100143F37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBC58C661FA4366100143F37 /* Assets.xcassets */; };
 		DBC58C6A1FA4366100143F37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC58C681FA4366100143F37 /* LaunchScreen.storyboard */; };
@@ -48,6 +49,7 @@
 		2CAE6DD08A6141EAEABD78BD /* Pods-PowerofusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerofusTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PowerofusTests/Pods-PowerofusTests.release.xcconfig"; sourceTree = "<group>"; };
 		2F63A896CC0223324F5CFD23 /* Pods-PowerofusUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerofusUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PowerofusUITests/Pods-PowerofusUITests.release.xcconfig"; sourceTree = "<group>"; };
 		34E90237D8EFFC04935D4E7D /* Pods_PowerofusUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PowerofusUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB29C3FD1FA48731007F794C /* EditNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNameVC.swift; sourceTree = "<group>"; };
 		DBC58C5C1FA4366100143F37 /* Powerofus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Powerofus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBC58C5F1FA4366100143F37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBC58C661FA4366100143F37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				DBC58C941FA4382000143F37 /* TopVC.swift */,
 				DBEBB86B1FA4592F004B93B0 /* SelectLiveVC.swift */,
 				DBEBB86D1FA46749004B93B0 /* QRcodeReaderVC.swift */,
+				DB29C3FD1FA48731007F794C /* EditNameVC.swift */,
 			);
 			path = VIewController;
 			sourceTree = "<group>";
@@ -339,6 +342,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Powerofus/Pods-Powerofus-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
+				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
@@ -347,6 +352,8 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
@@ -496,6 +503,7 @@
 				DBC58C601FA4366100143F37 /* AppDelegate.swift in Sources */,
 				DBEBB86E1FA46749004B93B0 /* QRcodeReaderVC.swift in Sources */,
 				DBC58C921FA437EB00143F37 /* SocketModel.swift in Sources */,
+				DB29C3FE1FA48731007F794C /* EditNameVC.swift in Sources */,
 				DBC58C971FA445A400143F37 /* Constant.swift in Sources */,
 				DBC58C951FA4382000143F37 /* TopVC.swift in Sources */,
 				DBEBB86C1FA4592F004B93B0 /* SelectLiveVC.swift in Sources */,

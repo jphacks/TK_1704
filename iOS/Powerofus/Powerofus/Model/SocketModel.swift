@@ -3,9 +3,17 @@ import SocketIO
 final class SocketModel {
     let socket = SocketIOClient(socketURL: URL(string: "http://133.130.124.246:2017/")!, config: [.log(true), .compress])
 
-    func connect () {
+    func connect (uuid: String, color: String) {
         socket.on(clientEvent: .connect) {data, ack in
             print("socket connected")
+            let params = [
+                "user": [
+                    "id": uuid,
+                    "color": color
+                ]
+            ]
+            
+            self.socket.emit("join_room", params)
         }
         socket.on("disconnect") { data, ack in
             print("socket disconnected!!")
@@ -26,6 +34,7 @@ final class SocketModel {
             print("ここだよ！")
             print(message)
         }
+        
         
         socket.connect()
     }

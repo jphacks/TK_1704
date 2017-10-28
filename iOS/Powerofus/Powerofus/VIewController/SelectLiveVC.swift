@@ -5,6 +5,7 @@ import SwiftyUserDefaults
 
 class SelectLiveVC: UIViewController {
     
+    let model = SocketModel()
     let qrBtn: UIButton = {
         let btn = UIButton()
         let label = UILabel()
@@ -35,6 +36,8 @@ class SelectLiveVC: UIViewController {
             $0.height.equalTo(40)
             $0.width.equalTo(160)
         }
+        
+        model.connect(uuid: Defaults[.uuid], color: "red")
     }
     
     override func viewWillAppear(_ animated: Bool) {
