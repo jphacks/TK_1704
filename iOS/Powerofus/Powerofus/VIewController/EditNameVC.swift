@@ -1,6 +1,7 @@
 import UIKit
 import Material
 import SnapKit
+import SwiftyUserDefaults
 
 class EditNameVC: UIViewController, UITextFieldDelegate {
     
@@ -14,6 +15,9 @@ class EditNameVC: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(Defaults[.userName])
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: checkBtn)
+        checkBtn.addTarget(self, action: #selector(checkDidTap), for: .touchUpInside)
         
         nameField.delegate = self
         nameField.placeholder = "なまえを入力してね"
@@ -34,8 +38,14 @@ class EditNameVC: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func checkDidTap() {
-        
+    @objc func checkDidTap() {
+        if nameField.text == "" {
+            Alert.show(with: "なまえを入力してね", "")
+        } else {
+            Defaults[.userName] = nameField.text!
+            print("なまえは\(Defaults[.userName])")
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {

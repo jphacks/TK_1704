@@ -11,6 +11,7 @@
 		674F4C397D6678DB6503F0E8 /* Pods_PowerofusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEF0C108F5AAFE5EAC1938AC /* Pods_PowerofusTests.framework */; };
 		AEBC3B4E4A59A7B8C51F4C0E /* Pods_PowerofusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E90237D8EFFC04935D4E7D /* Pods_PowerofusUITests.framework */; };
 		DB29C3FE1FA48731007F794C /* EditNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29C3FD1FA48731007F794C /* EditNameVC.swift */; };
+		DB29C4001FA49413007F794C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29C3FF1FA49412007F794C /* Alert.swift */; };
 		DBC58C601FA4366100143F37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC58C5F1FA4366100143F37 /* AppDelegate.swift */; };
 		DBC58C671FA4366100143F37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBC58C661FA4366100143F37 /* Assets.xcassets */; };
 		DBC58C6A1FA4366100143F37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC58C681FA4366100143F37 /* LaunchScreen.storyboard */; };
@@ -50,6 +51,7 @@
 		2F63A896CC0223324F5CFD23 /* Pods-PowerofusUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerofusUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PowerofusUITests/Pods-PowerofusUITests.release.xcconfig"; sourceTree = "<group>"; };
 		34E90237D8EFFC04935D4E7D /* Pods_PowerofusUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PowerofusUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB29C3FD1FA48731007F794C /* EditNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNameVC.swift; sourceTree = "<group>"; };
+		DB29C3FF1FA49412007F794C /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		DBC58C5C1FA4366100143F37 /* Powerofus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Powerofus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBC58C5F1FA4366100143F37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBC58C661FA4366100143F37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			children = (
 				DBC58C5F1FA4366100143F37 /* AppDelegate.swift */,
 				DBC58C961FA445A400143F37 /* Constant.swift */,
+				DB29C3FF1FA49412007F794C /* Alert.swift */,
 				DBC58C8D1FA4376100143F37 /* Model */,
 				DBC58C8E1FA4376A00143F37 /* VIewController */,
 				DBC58C661FA4366100143F37 /* Assets.xcassets */,
@@ -500,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB29C4001FA49413007F794C /* Alert.swift in Sources */,
 				DBC58C601FA4366100143F37 /* AppDelegate.swift in Sources */,
 				DBEBB86E1FA46749004B93B0 /* QRcodeReaderVC.swift in Sources */,
 				DBC58C921FA437EB00143F37 /* SocketModel.swift in Sources */,
