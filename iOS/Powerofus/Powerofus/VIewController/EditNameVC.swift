@@ -8,26 +8,38 @@ class EditNameVC: UIViewController, UITextFieldDelegate {
     let nameField = TextField()
     let checkBtn: Button = {
         let btn = Button()
-        btn.backgroundColor = UIColor.red
+        let label = UILabel()
+        label.text = "次へ"
+        label.font = UIFont(name: "Arial",size: 22)
+        btn.addSubview(label)
+        label.snp.makeConstraints{
+            $0.centerX.equalTo(btn.snp.centerX)
+            $0.centerY.equalTo(btn.snp.centerY)
+        }
         return btn
     }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let label = UILabel()
+        label.text = "名前を入力してね"
+        label.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        self.view.addSubview(label)
+        self.view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         print(Defaults[.userName])
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: checkBtn)
         checkBtn.addTarget(self, action: #selector(checkDidTap), for: .touchUpInside)
-        
+ 
         nameField.delegate = self
         nameField.text = Defaults[.userName]
-        nameField.placeholder = "なまえを入力してね"
         nameField.delegate = self
         nameField.returnKeyType = .done
         nameField.endEditing(true)
-        nameField.placeholderActiveColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
-        nameField.dividerColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
-        nameField.dividerActiveColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+        nameField.placeholderActiveColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        nameField.dividerColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        nameField.dividerActiveColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        nameField.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         self.view.addSubview(nameField)
         self.view.addSubview(checkBtn)
         
@@ -37,11 +49,18 @@ class EditNameVC: UIViewController, UITextFieldDelegate {
             $0.height.equalTo(40)
             $0.width.equalTo(150)
         }
+        label.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(nameField.snp.top).offset(-20)
+        }
+        checkBtn.snp.makeConstraints{
+            $0.width.equalTo(50)
+            $0.height.equalTo(50)
+        }
     }
     
     @objc func checkDidTap() {
         if nameField.text == "" {
-            Alert.show(with: "なまえを入力してね", "")
         } else {
             Defaults[.userName] = nameField.text!
             print("なまえは\(Defaults[.userName])")
