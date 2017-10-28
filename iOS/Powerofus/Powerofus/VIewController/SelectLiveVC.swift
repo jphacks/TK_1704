@@ -53,8 +53,8 @@ class SelectLiveVC: UIViewController {
     }
     
     @objc func qrDidTap() {
-        let nv = UINavigationController(rootViewController: QRcodeReaderVC())
-        present(nv, animated: true)
+        let vc = ViewController()
+        present(vc, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
