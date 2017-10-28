@@ -17,16 +17,35 @@ socket.on('connect', () => {
     socket.emit('join_room', data);
 });
 ```
-namespace を`join_room`にする。dataのJSONは
+room名は`join_room`にする。dataのJSONは
 ```
 {
     "user": {
-        "id": "thisisuniqueid",
+        "name": "beach3",
         "color": "red"
     }
 }
 ```
 で統一する。
+
+
+## ユーザーidを取得
+`join_room` したあと、`user_logged_in` にてサーバーからトークンが送られる。以後の通信にはこのトークンを用いてユーザーの識別を行う。
+```
+socket.on('user_logged_in', (msg) => {
+    console.log(msg)
+});
+```
+
+```
+{
+    "user": {
+        "name": "beach3",
+        "color": "red",
+        "id": "this_is_user_id"
+    }
+}
+```
 
 ## 音楽スタート
 ### Server から App
@@ -51,10 +70,10 @@ socket.emit('server_from_app', {
         color: color,
     },
     score: {
-        all: 1345,
+        all: 1345, // なくてもいい
         duration: 13
     },
-    action: {
+    action: { // actionは未実装。無くても可。
         type: 'vertical',
         strength: 3
     }
@@ -64,15 +83,15 @@ socket.emit('server_from_app', {
 ```
 {
     "user": {
-        "id": "thisisuniqueid",
+        "id": "this_id_user_id",
         "name": "mugicha",
         "color": "red"
     },
     "score": {
-        "all": 1345,
+        "all": 1345, // なくてもいい
         "duration": 13
     },
-    "action": {
+    "action": { // 未実装
         "type": "vertical",
         "strength": 3
     }
@@ -88,21 +107,18 @@ socket.on('app_to_server', (data) => {
 });
 ```
 取得できるJSONは以下の通り。
+(うそ、このレスポンスは使わないかも。要検討)
 ```
 {
     "user": {
         "color": "red",
-        "order": 3
+        "name": ""
     },
-    "action": {
-        "type": "order",
-        "data": [
-            "pink",
-            "yellow",
-            "red",
-            "purple",
-            "green"
-        ]
+    "team": {
+        "color": "red",
+        "score": {
+            "all": 165 // チームの合計値
+        }
     }
 }
 ```

@@ -65,6 +65,16 @@
   <script src="https://code.jquery.com/jquery-3.1.1.slim.js" integrity="sha256-5i/mQ300M779N2OVDrl16lbohwXNUdzL/R2aVUXyXWA="
     crossorigin="anonymous"></script>
   <script>
+    function getRandom(len = 16) {
+      var str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let result = '';
+      for (let i = 0; i < len; i++) {
+        result += str.charAt(Math.floor(Math.random() * str.length));
+      }
+      return result;
+    }
+  </script>
+  <script>
     const rooms = [
       'red',
       'yellow',
@@ -74,25 +84,31 @@
     ];
     const color = rooms[Math.floor(Math.random() * rooms.length)];
     console.log('color', color);
-    const userName = 'shota';
-    const userId = 'thisisuniqueid';
-
+    const userName = 'beach3';
+    let userId = '';
 
     const socket = io();
 
-    // サーバーとツナ型
+    // サーバーと繋がった
     socket.on('connect', () => {
       console.log('connected!!!');
 
       const data = {
         user: {
           color: color,
-          id: userId
+          name: userName
         }
       };
+
       console.log('join_room_data', data);
       // room に入る
       socket.emit('join_room', data);
+    });
+
+    // ユーザーidが帰ってくる
+    socket.on('user_logged_in', (msg) => {
+      console.log('user_logged_in', msg);
+      userId = msg.user.id;
     });
 
     $('#btn2').click(() => {
@@ -104,7 +120,7 @@
         },
         score: {
           all: 1345,
-          duration: 13
+          duration: Math.floor( Math.random() * 20 )
         },
         action: {
           type: 'vertical',
