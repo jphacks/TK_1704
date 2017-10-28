@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 const Datastore = require('nedb-promises');
 
@@ -127,6 +128,15 @@ function socketIO() {
     socket.on('app', (msg) => {
       console.log(`chat message ${msg}`);
       io.sockets.emit('app', msg);
+    });
+
+    //jsonfileを読み出して返すイベント
+    socket.on('readJSON', function (color) {
+      var rawdata = fs.readFileSync( __dirname + '/../humin/id_data.json', 'utf-8');
+      var data = JSON.parse(rawdata);
+      var score = data[color];
+      var name = `json${color}`;
+      io.sockets.emit(name, { value: score });
     });
 
   });

@@ -8,6 +8,12 @@
 * green
 * purple
 
+## イベント
+* join_room
+* user_logged_in
+* server_from_app
+* app_from_server
+
 ## 各色の room に入る
 以下はwebのサンプル。アプリ用に治す必要あり。
 ```
@@ -99,10 +105,10 @@ socket.emit('server_from_app', {
 ```
 
 ### Server から
-`app_to_server`で。サーバーから所属しているチームのデータが送られてくる。
+`app_from_server`で。サーバーから所属しているチームのデータが送られてくる。
 ```
 // ブラウザのコード...。
-socket.on('app_to_server', (data) => {
+socket.on('app_from_server', (data) => {
     const res = JSON.stringify(data);
 });
 ```
