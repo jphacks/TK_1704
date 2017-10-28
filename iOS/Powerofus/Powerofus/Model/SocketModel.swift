@@ -53,7 +53,7 @@ final class SocketModel {
                 if let arr2 = arr[0]["user"] {
                     if let txt = arr2["id"] {
                         self.token = txt
-                        print("トークン\(txt)")
+//                        print("トークン\(txt)")
                     }
                     
                 }

@@ -9,7 +9,7 @@ class EditNameVC: UIViewController, UITextFieldDelegate {
     let checkBtn: Button = {
         let btn = Button()
         let label = UILabel()
-        label.text = "次へ"
+        label.text = "保存"
         label.font = UIFont(name: "Arial",size: 22)
         btn.addSubview(label)
         label.snp.makeConstraints{

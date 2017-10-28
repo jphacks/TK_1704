@@ -6,7 +6,6 @@ class TopVC: UIViewController{
     
     private var myImageView: UIImageView!
     
-    let model = MotionModel()
     let joinBtn: UIButton = {
         let image0: UIImage = UIImage(named:"rainbow")!
         let btn = UIButton()
@@ -118,11 +117,6 @@ class TopVC: UIViewController{
             $0.bottom.equalTo(nameBtn.snp.top).offset(-20)
             $0.centerX.equalToSuperview()
         }
-        
-
-        
-        model.startAccelerometer()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
