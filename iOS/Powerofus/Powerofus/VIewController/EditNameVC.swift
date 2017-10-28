@@ -20,6 +20,7 @@ class EditNameVC: UIViewController, UITextFieldDelegate {
         checkBtn.addTarget(self, action: #selector(checkDidTap), for: .touchUpInside)
         
         nameField.delegate = self
+        nameField.text = Defaults[.userName]
         nameField.placeholder = "なまえを入力してね"
         nameField.delegate = self
         nameField.returnKeyType = .done
