@@ -6,17 +6,6 @@ import Material
 class WatingVC: UIViewController {
     
     let label = UILabel()
-    let button: Button = {
-        let btn = Button()
-        let label = UILabel()
-        label.text = "スタート"
-        btn.backgroundColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
-        btn.addSubview(label)
-        label.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
-        }
-        return btn
-    }()
     let model: SocketModel
     let color: String
     
@@ -36,19 +25,24 @@ class WatingVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         label.text = "ちょっとまってて"
-        button.layer.cornerRadius = 20
         self.view.addSubview(label)
-        self.view.addSubview(button)
         label.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
         }
-        button.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(50)
-            $0.height.equalTo(40)
-            $0.width.equalTo(120)
-        }
+        
         model.connect(color: color)
+        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(update), userInfo: nil, repeats: true)
+        timer.fire()
+    }
+    
+    @objc func update(tm: Timer) {
+        if model.isStart {
+            let nv = LiveNowVC(model)
+            self.navigationController?.pushViewController(nv, animated: true)
+            if timer.isValid {
+                timer.invalidate()
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
