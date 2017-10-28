@@ -7,12 +7,11 @@ class SelectLiveVC: UIViewController {
     
 
     let qrBtn: UIButton = {
+        let image3 : UIImage = UIImage(named:"qr")!
         let btn = UIButton()
         let label = UILabel()
-        label.text = "QRコードを読み取る"
-        label.font = UIFont(name:"ArialHebew", size:UIFont.labelFontSize)
-        label.textColor = .white
-        btn.backgroundColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+        btn.backgroundColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 0)
+        btn.setImage(image3, for: .normal)
         btn.addSubview(label)
         label.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
@@ -23,7 +22,7 @@ class SelectLiveVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.view.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+        self.view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         qrBtn.layer.cornerRadius = 20
         qrBtn.addTarget(self, action: #selector(qrDidTap), for: .touchUpInside)
         
@@ -32,9 +31,9 @@ class SelectLiveVC: UIViewController {
         //レイアウト
         qrBtn.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(30)
-            $0.height.equalTo(40)
-            $0.width.equalTo(160)
+            $0.bottom.equalToSuperview().inset(60)
+            $0.height.equalTo(55)
+            $0.width.equalTo(220)
         }
         
     }
