@@ -10,14 +10,20 @@ import UIKit
 import Vision
 import AVKit
 import SnapKit
+import Alamofire
 
-class ViewController: UIViewController {
-
+class QRcodeReaderVC: UIViewController {
 
     var previewView = VideoPreviewView()
     let btn = UIButton()
 
-
+    let label = UILabel()
+    let backBtn: UIButton = {
+        let btn = UIButton()
+        btn.backgroundColor = UIColor.red
+        return btn
+    }()
+    
     var captureSession: AVCaptureSession!
 
     var capturePhotoOutput: AVCapturePhotoOutput!
@@ -88,7 +94,9 @@ class ViewController: UIViewController {
     private func reportResults(results: [Any]?) {
         // Loop through the found results
         print("Barcode observation")
-
+        var url = ""
+        var color = ""
+        
         if results == nil {
         print("No results found.")
         } else {
@@ -99,18 +107,28 @@ class ViewController: UIViewController {
                 if let barcode = result as? VNBarcodeObservation {
 
                     if let payload = barcode.payloadStringValue {
-                    let alert: UIAlertController = UIAlertController(title: "red", message: payload, preferredStyle:  UIAlertControllerStyle.alert)
+                        
+                        let result = payload.characters.index(of: ",")
+                        let index = payload.index(after: result!)
+                        if let theRange = result {
+                            url = "\(payload[..<theRange])"
+                            color = "\(payload[index...])"
+                        } else {
+                            Alert.show(with: "形式が違います")
+                        }
+                        
+                        let alert: UIAlertController = UIAlertController(title: "red", message: payload, preferredStyle:  UIAlertControllerStyle.alert)
+                        let defaultAction: UIAlertAction = UIAlertAction(title: "join", style: UIAlertActionStyle.default, handler:{
+                        // ボタンが押された時の処理を書く（クロージャ実装）
+                        (action: UIAlertAction!) -> Void in
+                            let nv = WatingVC(url, color)
+                            self.navigationController?.pushViewController(nv, animated: true)
+                        })
 
-                    let defaultAction: UIAlertAction = UIAlertAction(title: "join", style: UIAlertActionStyle.default, handler:{
-                    // ボタンが押された時の処理を書く（クロージャ実装）
-                    (action: UIAlertAction!) -> Void in
-
-                    })
-
-                    alert.addAction(defaultAction)
-
-                    present(alert, animated: true, completion: nil)
-                    print("Payload: \(payload)")
+                        alert.addAction(defaultAction)
+                        
+                        present(alert, animated: true, completion: nil)
+                        print("Payload: \(payload)")
                     }
 
                     // Print barcode-values
@@ -130,22 +148,38 @@ class ViewController: UIViewController {
     }
 }
 
-    // MARK: UIViewControllerDelegate
+// MARK: UIViewControllerDelegate
 
-extension ViewController {
+extension QRcodeReaderVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backBtn)
         self.view.addSubview(previewView)
+        label.text = "タップしてよみとってね！"
+        previewView.addSubview(label)
         previewView.addSubview(btn)
+        btn.addSubview(backBtn)
         btn.addTarget(self, action: #selector(snapPhoto), for: .touchUpInside)
+        backBtn.addTarget(self, action: #selector(backDidTap), for: .touchUpInside)
 
         previewView.snp.makeConstraints {
             $0.left.right.top.bottom.equalToSuperview()
         }
         btn.snp.makeConstraints {
             $0.left.right.top.bottom.equalToSuperview()
+        }
+        label.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(20)
+            $0.height.equalTo(40)
+            $0.width.equalTo(200)
+        }
+        backBtn.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(20)
+            $0.left.equalToSuperview().inset(20)
+            $0.size.equalTo(30)
         }
 
         captureSession = AVCaptureSession()
@@ -175,11 +209,15 @@ extension ViewController {
             captureSession.stopRunning()
         }
     }
+    
+    @objc func backDidTap() {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
     // MARK: AVCapturePhotoCaptureDelegate
 
-extension ViewController : AVCapturePhotoCaptureDelegate {
+extension QRcodeReaderVC : AVCapturePhotoCaptureDelegate {
 
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         print("Finished processing photo")

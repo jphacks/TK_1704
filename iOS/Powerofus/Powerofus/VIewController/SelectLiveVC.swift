@@ -5,7 +5,7 @@ import SwiftyUserDefaults
 
 class SelectLiveVC: UIViewController {
     
-    let model = SocketModel()
+
     let qrBtn: UIButton = {
         let image3 : UIImage = UIImage(named:"qr")!
         let btn = UIButton()
@@ -36,7 +36,6 @@ class SelectLiveVC: UIViewController {
             $0.width.equalTo(220)
         }
         
-        model.connect(uuid: Defaults[.uuid], color: "red")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +51,7 @@ class SelectLiveVC: UIViewController {
     }
     
     @objc func qrDidTap() {
-        let vc = ViewController()
+        let vc = QRcodeReaderVC()
         present(vc, animated: true)
     }
     
@@ -60,7 +59,6 @@ class SelectLiveVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
 }
 

@@ -119,16 +119,10 @@ class TopVC: UIViewController{
             $0.centerX.equalToSuperview()
         }
         
-        //        var familyNames : Array = UIFont.familyNames;
-        //        let len = familyNames.count;
-        //
-        //        for i in 0 ..< len {
-        //            let fontFamily = familyNames[i] as String;
-        //            let fontNames = UIFont.fontNames(forFamilyName: fontFamily);
-        //            print("\(fontFamily),\(fontNames)")
-        //        }
+
         
         model.startAccelerometer()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -143,7 +137,7 @@ class TopVC: UIViewController{
     
     @objc func joinDidTap() {
         if Defaults[.userName] != "" {
-            let nv = UINavigationController(rootViewController: SelectLiveVC())
+            let nv = UINavigationController(rootViewController: QRcodeReaderVC())
             present(nv, animated: true)
         }
     }
