@@ -59,15 +59,14 @@ class TopVC: UIViewController{
             $0.width.equalTo(120)
         }
         
-        model.startAccelerometer()
+//        model.startAccelerometer()
     }
     
     @objc func joinDidTap() {
         if Defaults[.userName] != "" {
-            let nv = UINavigationController(rootViewController: SelectLiveVC())
+            let nv = UINavigationController(rootViewController: QRcodeReaderVC())
             present(nv, animated: true)
         } else {
-            
             let alert: UIAlertController = UIAlertController(title: "", message: "なまえを設定してね", preferredStyle:  UIAlertControllerStyle.alert)
             
             let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{

@@ -1,20 +1,34 @@
 import SocketIO
+import SwiftyUserDefaults
 
 final class SocketModel {
-    let socket = SocketIOClient(socketURL: URL(string: "http://133.130.124.246:2017/")!, config: [.log(true), .compress])
 
-    func connect (uuid: String, color: String) {
+    let socket: SocketIOClient
+    let color: String
+    var token = ""
+    var getJson: NSDictionary!
+    var jsonIp = ""
+    var isStart = false
+    
+    init(_ url: String, _ color: String) {
+        socket = SocketIOClient(socketURL: URL(string: url)!, config: [.log(true), .compress])
+        self.color = color
+    }
+
+    func connect (color: String) {
         socket.on(clientEvent: .connect) {data, ack in
             print("socket connected")
             let params = [
                 "user": [
-                    "id": uuid,
+                    "id": Defaults[.userName],
                     "color": color
                 ]
             ]
             
             self.socket.emit("join_room", params)
         }
+        
+        
         socket.on("disconnect") { data, ack in
             print("socket disconnected!!")
         }
@@ -29,14 +43,60 @@ final class SocketModel {
             }
         }
         
-        socket.on("from_server") { (data, emitter) in
-            let message = data
-            print("ここだよ！")
-            print(message)
+        socket.on("user_logged_in") { data, ack in
+            print("うわー")
+            print(data)
+            
+            if let arr = data as? [[String: [String:String]]] {
+                print("aaaaaaa")
+                print(arr)
+                if let arr2 = arr[0]["user"] {
+                    if let txt = arr2["id"] {
+                        self.token = txt
+                        print("トークン\(txt)")
+                    }
+                    
+                }
+            }
         }
         
+        socket.on("server_from_app") { data, ack in
+            print("うへへへへ")
+            print(data)
+            
+        }
         
+        socket.on("start_music") { data, ack in
+            if let arr = data as? [[String: [String:String]]] {
+                print("aaaaaaa")
+                print(arr)
+                if let arr2 = arr[0]["action"] {
+                    if let txt = arr2["type"] {
+                        print("今の状況\(txt)")
+                        if txt == "start" {
+                            self.isStart = true
+                        } else {
+                            self.isStart = false
+                        }
+                    }
+                }
+            }
+        }
         socket.connect()
+    }
+    
+    func sendScore(score: Int, color: String) {
+        let params: [String : Any] = [
+            "user": [
+                "id": token,
+                "name": Defaults[.userName],
+                "color": color
+            ],
+            "score": [
+                "duration": score
+            ],
+        ]
+        socket.emit("server_from_app", params)
     }
     
 }
