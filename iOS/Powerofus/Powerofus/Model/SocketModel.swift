@@ -16,7 +16,7 @@ final class SocketModel {
                 self.socket.emitWithAck("canUpdate", cur).timingOut(after: 0) {data in
                     self.socket.emit("update", ["amount": cur + 2.50])
                 }
-                
+
                 ack.with("Got your currentAmount", "dude")
             }
         }

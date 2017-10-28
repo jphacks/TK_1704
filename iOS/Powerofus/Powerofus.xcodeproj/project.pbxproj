@@ -18,6 +18,7 @@
 		DBC58C901FA437D100143F37 /* MotionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC58C8F1FA437D100143F37 /* MotionModel.swift */; };
 		DBC58C921FA437EB00143F37 /* SocketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC58C911FA437EB00143F37 /* SocketModel.swift */; };
 		DBC58C951FA4382000143F37 /* TopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC58C941FA4382000143F37 /* TopVC.swift */; };
+		DBC58C971FA445A400143F37 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC58C961FA445A400143F37 /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		DBC58C8F1FA437D100143F37 /* MotionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionModel.swift; sourceTree = "<group>"; };
 		DBC58C911FA437EB00143F37 /* SocketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketModel.swift; sourceTree = "<group>"; };
 		DBC58C941FA4382000143F37 /* TopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVC.swift; sourceTree = "<group>"; };
+		DBC58C961FA445A400143F37 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		DEF0C108F5AAFE5EAC1938AC /* Pods_PowerofusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PowerofusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0923A883D4D35926C666DFB /* Pods-PowerofusUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerofusUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PowerofusUITests/Pods-PowerofusUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +147,7 @@
 				DBC58C661FA4366100143F37 /* Assets.xcassets */,
 				DBC58C681FA4366100143F37 /* LaunchScreen.storyboard */,
 				DBC58C6B1FA4366100143F37 /* Info.plist */,
+				DBC58C961FA445A400143F37 /* Constant.swift */,
 			);
 			path = Powerofus;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -340,6 +344,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -484,6 +489,7 @@
 			files = (
 				DBC58C601FA4366100143F37 /* AppDelegate.swift in Sources */,
 				DBC58C921FA437EB00143F37 /* SocketModel.swift in Sources */,
+				DBC58C971FA445A400143F37 /* Constant.swift in Sources */,
 				DBC58C951FA4382000143F37 /* TopVC.swift in Sources */,
 				DBC58C901FA437D100143F37 /* MotionModel.swift in Sources */,
 			);
