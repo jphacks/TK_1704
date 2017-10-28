@@ -19,6 +19,8 @@
 		DBC58C921FA437EB00143F37 /* SocketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC58C911FA437EB00143F37 /* SocketModel.swift */; };
 		DBC58C951FA4382000143F37 /* TopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC58C941FA4382000143F37 /* TopVC.swift */; };
 		DBC58C971FA445A400143F37 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC58C961FA445A400143F37 /* Constant.swift */; };
+		DBEBB86C1FA4592F004B93B0 /* SelectLiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEBB86B1FA4592F004B93B0 /* SelectLiveVC.swift */; };
+		DBEBB86E1FA46749004B93B0 /* QRcodeReaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEBB86D1FA46749004B93B0 /* QRcodeReaderVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		DBC58C911FA437EB00143F37 /* SocketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketModel.swift; sourceTree = "<group>"; };
 		DBC58C941FA4382000143F37 /* TopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVC.swift; sourceTree = "<group>"; };
 		DBC58C961FA445A400143F37 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		DBEBB86B1FA4592F004B93B0 /* SelectLiveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLiveVC.swift; sourceTree = "<group>"; };
+		DBEBB86D1FA46749004B93B0 /* QRcodeReaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRcodeReaderVC.swift; sourceTree = "<group>"; };
 		DEF0C108F5AAFE5EAC1938AC /* Pods_PowerofusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PowerofusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0923A883D4D35926C666DFB /* Pods-PowerofusUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerofusUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PowerofusUITests/Pods-PowerofusUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,13 +145,13 @@
 		DBC58C5E1FA4366100143F37 /* Powerofus */ = {
 			isa = PBXGroup;
 			children = (
+				DBC58C5F1FA4366100143F37 /* AppDelegate.swift */,
+				DBC58C961FA445A400143F37 /* Constant.swift */,
 				DBC58C8D1FA4376100143F37 /* Model */,
 				DBC58C8E1FA4376A00143F37 /* VIewController */,
-				DBC58C5F1FA4366100143F37 /* AppDelegate.swift */,
 				DBC58C661FA4366100143F37 /* Assets.xcassets */,
 				DBC58C681FA4366100143F37 /* LaunchScreen.storyboard */,
 				DBC58C6B1FA4366100143F37 /* Info.plist */,
-				DBC58C961FA445A400143F37 /* Constant.swift */,
 			);
 			path = Powerofus;
 			sourceTree = "<group>";
@@ -183,6 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				DBC58C941FA4382000143F37 /* TopVC.swift */,
+				DBEBB86B1FA4592F004B93B0 /* SelectLiveVC.swift */,
+				DBEBB86D1FA46749004B93B0 /* QRcodeReaderVC.swift */,
 			);
 			path = VIewController;
 			sourceTree = "<group>";
@@ -488,9 +494,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBC58C601FA4366100143F37 /* AppDelegate.swift in Sources */,
+				DBEBB86E1FA46749004B93B0 /* QRcodeReaderVC.swift in Sources */,
 				DBC58C921FA437EB00143F37 /* SocketModel.swift in Sources */,
 				DBC58C971FA445A400143F37 /* Constant.swift in Sources */,
 				DBC58C951FA4382000143F37 /* TopVC.swift in Sources */,
+				DBEBB86C1FA4592F004B93B0 /* SelectLiveVC.swift in Sources */,
 				DBC58C901FA437D100143F37 /* MotionModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -30,6 +30,4 @@ final class SocketModel {
         socket.connect()
     }
     
-
-    
 }
