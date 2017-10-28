@@ -40,6 +40,7 @@ class EditNameVC: UIViewController, UITextFieldDelegate {
         nameField.dividerColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         nameField.dividerActiveColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         nameField.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        nameField.textAlignment = .center
         self.view.addSubview(nameField)
         self.view.addSubview(checkBtn)
         
