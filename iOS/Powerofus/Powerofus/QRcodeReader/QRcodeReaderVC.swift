@@ -189,7 +189,7 @@ extension QRcodeReaderVC {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9999085069, green: 1, blue: 0.9998822808, alpha: 1)
         if isCaptureSessionConfigured {
             if !captureSession.isRunning {
                 captureSession.startRunning()

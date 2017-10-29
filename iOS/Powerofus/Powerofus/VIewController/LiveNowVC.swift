@@ -51,17 +51,26 @@ class LiveNowVC: UIViewController {
         timer.fire()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController!.interactivePopGestureRecognizer!.isEnabled = false
+        self.navigationItem.hidesBackButton = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationItem.hidesBackButton = false
+    }
+    
     @objc func update(tm: Timer) {
-        if motionModel.score >= 60 {
+        if motionModel.score >= 130 {
             UIScreen.main.brightness = CGFloat(1.0)
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
-        } else if motionModel.score >= 50 {
+        } else if motionModel.score >= 110 {
             UIScreen.main.brightness = CGFloat(0.8)
-        } else if motionModel.score >= 40 {
+        } else if motionModel.score >= 100 {
             UIScreen.main.brightness = CGFloat(0.7)
-        } else if motionModel.score >= 30 {
+        } else if motionModel.score >= 90 {
             UIScreen.main.brightness = CGFloat(0.5)
-        } else if motionModel.score >= 20 {
+        } else if motionModel.score >= 80 {
             UIScreen.main.brightness = CGFloat(0.3)
         } else {
             UIScreen.main.brightness = CGFloat(0.0)
