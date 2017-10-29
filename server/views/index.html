@@ -105,6 +105,9 @@
           oto.play();
           state = 1;
           socketio.emit("start_web_music");
+        }else if(key == "l"){
+          state = 2;
+          oto.stop();
         }
       }
   </script>
