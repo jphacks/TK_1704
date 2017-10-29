@@ -11,8 +11,10 @@
 ## イベント
 * join_room
 * user_logged_in
+* start_music
 * server_from_app
 * app_from_server
+* stop_music
 
 ## 各色の room に入る
 以下はwebのサンプル。アプリ用に治す必要あり。
@@ -55,6 +57,8 @@ socket.on('user_logged_in', (msg) => {
 
 ## 音楽スタート
 ### Server から App
+音楽が始まると`start_music` イベントが発火される。
+以下のデータが送られる。
 ```
 {
     "action": {
@@ -131,3 +135,16 @@ socket.on('app_from_server', (data) => {
 
 App から Server への送信タイミングはアプリ側で決める。
 ユーザーがデータを更新したら、同じルームのユーザー全員は Server から データが送られる。
+
+
+## 音楽終了
+### Server から App
+音楽が始まると`stop_music` イベントが発火される。
+以下のデータが送られる。
+```
+{
+    "action": {
+        "type": "stop"
+    }
+}
+```

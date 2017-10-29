@@ -2,80 +2,111 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>LIVE­</title>
+  <title>LIVE </title>
   <script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/p5.min.js"></script>
-  <!--<script language="javascript" type="text/javascript" src="/path/to/p5.scribble.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/addons/p5.sound.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+    }
+  </style>
 </head>
 
 <body>
   <script src="/socket.io/socket.io.js"></script>
   <script type="text/javascript">
-    var socketio = io.connect('http://133.130.124.246:2017/');
+    var socketio = io.connect();
+    // var socketio = io.connect(‘http://133.130.124.246:2017/’);
     var d_red = 0,
-      d_blue = 0,
+      d_pink = 0,
       d_yellow = 0,
       d_green = 0,
-      d_white = 0;
-    socketio.on("jsonred", function (data) {
-      d_red = d_red + data.value;
-      console.log(d_red);
+      d_purple = 0;
+    var oto;
+    var state = 0;
+    var bg;
+    var analyzer;
+    socketio.on("all_color_sum", function (data) {
+      d_red = data.red.all;
+      d_pink = data.pink.all;
+      d_yellow = data.yellow.all;
+      d_green = data.green.all;
+      d_purple = data.purple.all;
     });
-    socketio.on("jsonblue", function (data) {
-      d_blue = d_blue + data.value;
-      console.log(d_blue);
-    });
-    socketio.on("jsonyellow", function (data) {
-      d_yellow = d_yellow + data.value;
-      console.log(d_yellow);
-    });
-    socketio.on("jsongreen", function (data) {
-      d_green = d_green + data.value;
-      console.log(d_green);
-    });
-    socketio.on("jsonwhite", function (data) {
-      d_white = d_white + data.value;
-      console.log(d_white);
-    });
+    /*
+        socket.emit("start_web_music");
+        socket.emit("stop_web_music");*/
+    function preload() {
+      oto = loadSound("../assets/oo.mp3 ");
+        bg = loadImage("../assets/black.png");
+      }
 
-    function GetRedJSON() {
-      socketio.emit("readJSON", "red");
-    }
+      function setup() {
+        frameRate(10);
+        createCanvas(windowWidth, windowHeight);
+        background(bg);
+        analyzer = new p5.Amplitude();
+        analyzer.setInput(oto);
+      }
 
-    function GetBlueJSON() {
-      socketio.emit("readJSON", "blue");
-    }
+      function draw() {
+        if (state == 0) {
+          main();
+        } else if (state == 1) {
+          start();
+        } else if (state == 2) {
+          end();
+        }
+      }
 
-    function GetYellowJSON() {
-      socketio.emit("readJSON", "yellow");
-    }
+      function main() {
+        keyTyped();
+      }
 
-    function GetGreenJSON() {
-      socketio.emit("readJSON", "green");
-    }
+      function start() {
+        background(bg);
+        socketio.emit("read_json");
+        var rms = analyzer.getLevel();
+        rectMode(CENTER);
+        fill(255, 0, 0);
+        rect(width/6, height/2, 100 + rms * 100, d_red, 20);
+        textSize(35);
+        textAlign(CENTER);
+        text(d_red, width/6, height - 10);
 
-    function GetWhiteJSON() {
-      socketio.emit("readJSON", "white");
-    }
+        fill(255, 0, 255);
+        rect(width/6 * 2, height/2, 100 + rms * 20, d_pink, 20);
+        textAlign(CENTER);
+        text(d_pink, width/6 * 2, height - 10);
 
-    function setup() {
-      frameRate(10);
-      createCanvas(windowWidth, windowHeight);
-      background(255);
-    }
+        fill(255, 255, 0);
+        rect(width/6 * 3, height/2, 100 + rms * 300, d_yellow, 20);
+        textAlign(CENTER);
+        text(d_yellow, width/6 * 3, height - 10);
 
-    function draw() {
-      background(255);
-      GetRedJSON();
-      GetBlueJSON();
-      GetYellowJSON();
-      GetGreenJSON();
-      GetWhiteJSON();
-      ellipse(width / 6, height, 50, d_red, 5);
-      ellipse(width / 6 * 2, height, 50, d_blue, 5);
-      ellipse(width / 6 * 3, height, 50, d_yellow, 5);
-      ellipse(width / 6 * 4, height, 50, d_green, 5);
-      ellipse(width / 6 * 5, height, 50, d_white, 5);
-    }
+        fill(0, 255, 0);
+        rect(width/6 * 4, height/2, 100 + rms * 50, d_green, 20);
+        textAlign(CENTER);
+        text(d_green, width/6 * 4, height - 10);
+
+        fill(128, 0, 128);
+        rect(width/6 * 5, height/2, 100 + rms * 40, d_purple, 20);
+        textAlign(CENTER);
+        text(d_purple, width/6 * 5, height - 10);
+      }
+
+      function end() {
+        socketio.emit("stop_web_music");
+      }
+
+      function keyTyped() {
+        if (key == "a") {
+          oto.play();
+          state = 1;
+          socketio.emit("start_web_music");
+        }
+      }
   </script>
 </body>
 
