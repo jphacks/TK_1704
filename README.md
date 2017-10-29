@@ -4,7 +4,9 @@
 ### Live x Tech
 デモ動画
 
-[![Demo](Icon-App-76x76@3x.png)](https://www.youtube.com/channel/UC4PtjOfZTbVp9DwtJv82Lzg)
+
+
+[![Demo](b.png)](https://www.youtube.com/watch?v=skWskgQhMIc&feature=youtu.be)
 
 ### 背景（製品開発のきっかけ、課題等）
 〜ライブに楽曲+αの楽しみを。〜
