@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>LIVE­</title>
   <script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/addons/p5.sound.min.js"></script>
   <!--<script language="javascript" type="text/javascript" src="/path/to/p5.scribble.js"></script>-->
 </head>
 
@@ -15,47 +16,28 @@
       d_blue = 0,
       d_yellow = 0,
       d_green = 0,
-      d_white = 0;
-    socketio.on("jsonred", function (data) {
-      d_red = d_red + data.value;
-      console.log(d_red);
-    });
-    socketio.on("jsonblue", function (data) {
-      d_blue = d_blue + data.value;
-      console.log(d_blue);
-    });
-    socketio.on("jsonyellow", function (data) {
-      d_yellow = d_yellow + data.value;
-      console.log(d_yellow);
-    });
-    socketio.on("jsongreen", function (data) {
-      d_green = d_green + data.value;
-      console.log(d_green);
-    });
-    socketio.on("jsonwhite", function (data) {
-      d_white = d_white + data.value;
-      console.log(d_white);
-    });
+      d_purple = 0;
+    var oto ;
+    var state = 0;
 
-    function GetRedJSON() {
-      socketio.emit("readJSON", "red");
+    socketio.on("all_color_sum", function (data) {
+      d_red = d_red + data.red;
+      d_blue = d_blue + data.blue;
+      d_yellow = d_yellow + data.yellow;
+      d_green = d_green + data.green;
+      d_purple = d_purple + data.purple;
+    });
+/*
+    socket.emit("start_web_music");
+    socket.emit("stop_web_music");*/
+
+    function preload(){
+      oto = loadSound("../assets/oo.mp3");
     }
 
-    function GetBlueJSON() {
-      socketio.emit("readJSON", "blue");
-    }
-
-    function GetYellowJSON() {
-      socketio.emit("readJSON", "yellow");
-    }
-
-    function GetGreenJSON() {
-      socketio.emit("readJSON", "green");
-    }
-
-    function GetWhiteJSON() {
-      socketio.emit("readJSON", "white");
-    }
+    // function GetJSON() {
+    //   socketio.emit("read_json");
+    // }
 
     function setup() {
       frameRate(10);
@@ -64,18 +46,38 @@
     }
 
     function draw() {
-      background(255);
-      GetRedJSON();
-      GetBlueJSON();
-      GetYellowJSON();
-      GetGreenJSON();
-      GetWhiteJSON();
-      ellipse(width / 6, height, 50, d_red, 5);
-      ellipse(width / 6 * 2, height, 50, d_blue, 5);
-      ellipse(width / 6 * 3, height, 50, d_yellow, 5);
-      ellipse(width / 6 * 4, height, 50, d_green, 5);
-      ellipse(width / 6 * 5, height, 50, d_white, 5);
+      if(state == 0){
+        main();
+      }else if(state == 1){
+        start();
+      }else if(state == 2){
+        end();
+      }
     }
+
+    function main(){
+      keyTyped();
+    }
+    function start(){
+          background(255);
+          socketio.emit("read_json");
+          rect(width / 6, height - d_red, 50, d_red, 20);
+          rect(width / 6 * 2, height - d_blue, 50, d_blue, 20);
+          rect(width / 6 * 3, height - d_yellow, 50, d_yellow, 20);
+          rect(width / 6 * 4, height - d_green, 50, d_green, 20);
+          rect(width / 6 * 5, height - d_purple, 50, d_purple, 20);
+        }
+    function end(){
+      socketio.emit("stop_web_music");
+    }
+    function keyTyped(){
+      if(key == 'a'){
+        oto.play();
+        state = 1;
+        socketio.emit("start_web_music");
+      }
+    }
+
   </script>
 </body>
 
