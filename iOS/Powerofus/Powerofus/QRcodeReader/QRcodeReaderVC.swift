@@ -157,10 +157,9 @@ extension QRcodeReaderVC {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backBtn)
         self.view.addSubview(previewView)
-        label.text = "タップしてよみとってね！"
+        label.text = "タップして読みとってね！"
         previewView.addSubview(label)
         previewView.addSubview(btn)
-        btn.addSubview(backBtn)
         btn.addTarget(self, action: #selector(snapPhoto), for: .touchUpInside)
         backBtn.addTarget(self, action: #selector(backDidTap), for: .touchUpInside)
 
@@ -175,11 +174,6 @@ extension QRcodeReaderVC {
             $0.bottom.equalToSuperview().inset(20)
             $0.height.equalTo(40)
             $0.width.equalTo(200)
-        }
-        backBtn.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(20)
-            $0.left.equalToSuperview().inset(20)
-            $0.size.equalTo(30)
         }
 
         captureSession = AVCaptureSession()
