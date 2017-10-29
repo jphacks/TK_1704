@@ -1,11 +1,12 @@
 # Power of us
 
-[![Power of us](Icon-App-76x76@3x.png)]
-[![Power of us](https://www.youtube.com/channel/UC4PtjOfZTbVp9DwtJv82Lzg)]
+![Power of us](Icon-App-76x76@3x.png)
+
+
 
 ## 製品概要
 ### Live x Tech
-
+[![Demo](Icon-App-76x76@3x.png)](https://www.youtube.com/channel/UC4PtjOfZTbVp9DwtJv82Lzg)
 
 ### 背景（製品開発のきっかけ、課題等）
 〜ライブに楽曲+αの楽しみを。〜
