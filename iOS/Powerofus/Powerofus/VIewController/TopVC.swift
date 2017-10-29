@@ -72,7 +72,7 @@ class TopVC: UIViewController{
         myImageView = UIImageView()
         myImageView.image = UIImage(named: "icon")
         // Do any additional setup after loading the view, typically from a nib.
-        self.view.backgroundColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        self.view.backgroundColor =  #colorLiteral(red: 0.04313214868, green: 0.04314065725, blue: 0.04312644154, alpha: 1)
         joinBtn.layer.cornerRadius = 20
         if Defaults[.userName] == "" {
             joinBtn.isHidden = true
