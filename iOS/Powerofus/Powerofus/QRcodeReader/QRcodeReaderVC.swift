@@ -20,7 +20,13 @@ class QRcodeReaderVC: UIViewController {
     let label = UILabel()
     let backBtn: UIButton = {
         let btn = UIButton()
-        btn.backgroundColor = UIColor.red
+        let iv = UIImageView()
+        iv.image = UIImage(named: "batsu")
+        btn.addSubview(iv)
+        iv.snp.makeConstraints {
+            $0.size.equalTo(30)
+            $0.centerX.centerY.equalToSuperview()
+        }
         return btn
     }()
     
@@ -117,7 +123,7 @@ class QRcodeReaderVC: UIViewController {
                             Alert.show(with: "形式が違います")
                         }
                         
-                        let alert: UIAlertController = UIAlertController(title: "red", message: payload, preferredStyle:  UIAlertControllerStyle.alert)
+                        let alert: UIAlertController = UIAlertController(title: color, message: "", preferredStyle:  UIAlertControllerStyle.alert)
                         let defaultAction: UIAlertAction = UIAlertAction(title: "join", style: UIAlertActionStyle.default, handler:{
                         // ボタンが押された時の処理を書く（クロージャ実装）
                         (action: UIAlertAction!) -> Void in
@@ -157,10 +163,9 @@ extension QRcodeReaderVC {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backBtn)
         self.view.addSubview(previewView)
-        label.text = "タップしてよみとってね！"
+        label.text = "タップして読みとってね！"
         previewView.addSubview(label)
         previewView.addSubview(btn)
-        btn.addSubview(backBtn)
         btn.addTarget(self, action: #selector(snapPhoto), for: .touchUpInside)
         backBtn.addTarget(self, action: #selector(backDidTap), for: .touchUpInside)
 
@@ -176,11 +181,6 @@ extension QRcodeReaderVC {
             $0.height.equalTo(40)
             $0.width.equalTo(200)
         }
-        backBtn.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(20)
-            $0.left.equalToSuperview().inset(20)
-            $0.size.equalTo(30)
-        }
 
         captureSession = AVCaptureSession()
         print(captureSession)
@@ -189,7 +189,7 @@ extension QRcodeReaderVC {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9999085069, green: 1, blue: 0.9998822808, alpha: 1)
         if isCaptureSessionConfigured {
             if !captureSession.isRunning {
                 captureSession.startRunning()

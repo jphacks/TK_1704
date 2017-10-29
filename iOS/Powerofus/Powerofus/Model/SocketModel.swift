@@ -75,7 +75,20 @@ final class SocketModel {
                         print("今の状況\(txt)")
                         if txt == "start" {
                             self.isStart = true
-                        } else {
+                        }
+                    }
+                }
+            }
+        }
+        
+        socket.on("stop_music") { data, ack in
+            if let arr = data as? [[String: [String:String]]] {
+                print("aaaaaaa")
+                print(arr)
+                if let arr2 = arr[0]["action"] {
+                    if let txt = arr2["type"] {
+                        print("今の状況\(txt)")
+                        if txt == "stop" {
                             self.isStart = false
                         }
                     }

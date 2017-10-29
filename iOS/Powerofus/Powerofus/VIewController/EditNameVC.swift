@@ -20,6 +20,7 @@ class EditNameVC: UIViewController, UITextFieldDelegate {
     }()
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let label = UILabel()
@@ -62,11 +63,17 @@ class EditNameVC: UIViewController, UITextFieldDelegate {
     
     @objc func checkDidTap() {
         if nameField.text == "" {
+            Alert.show(with: "なまえを入力してね", "")
         } else {
             Defaults[.userName] = nameField.text!
             print("なまえは\(Defaults[.userName])")
             dismiss(animated: true, completion: nil)
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        outputText.text = inputText.text
+        self.view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -83,3 +90,6 @@ extension UITextField {
         self.layer.addSublayer(border)
     }
 }
+
+
+

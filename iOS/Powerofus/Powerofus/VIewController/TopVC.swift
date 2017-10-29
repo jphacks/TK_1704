@@ -70,8 +70,7 @@ class TopVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         myImageView = UIImageView()
-        let image4 = UIImage(named: "icon")
-        myImageView.image = image4
+        myImageView.image = UIImage(named: "icon")
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         joinBtn.layer.cornerRadius = 20
@@ -110,8 +109,7 @@ class TopVC: UIViewController{
         myImageView.snp.makeConstraints{
             $0.centerY.equalToSuperview().offset(-150)
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(300)
-            $0.height.equalTo(300)
+            $0.size.equalTo(270)
         }
         warn.snp.makeConstraints{
             $0.bottom.equalTo(nameBtn.snp.top).offset(-20)
@@ -121,6 +119,9 @@ class TopVC: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        UIApplication.shared.statusBarStyle = (navigationController?.navigationBar.tintColor == .white ? .lightContent : .default)
+        
         print(joinBtn.isEnabled)
         if Defaults[.userName] != "" {
             nojoinBtn.isHidden = true

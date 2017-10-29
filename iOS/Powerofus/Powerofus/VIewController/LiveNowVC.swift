@@ -33,11 +33,11 @@ class LiveNowVC: UIViewController {
             navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
             self.view.backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
         case "pink":
-            navigationController?.navigationBar.barTintColor = #colorLiteral(red: 1, green: 0.5409764051, blue: 0.8473142982, alpha: 1)
-            self.view.backgroundColor = #colorLiteral(red: 1, green: 0.5409764051, blue: 0.8473142982, alpha: 1)
+            navigationController?.navigationBar.barTintColor = #colorLiteral(red: 1, green: 0.2825942436, blue: 0.7046276663, alpha: 1)
+            self.view.backgroundColor = #colorLiteral(red: 1, green: 0.2825942436, blue: 0.7046276663, alpha: 1)
         case "green":
-            navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
-            self.view.backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+            navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0, green: 0.758980453, blue: 0.1237550154, alpha: 1)
+            self.view.backgroundColor = #colorLiteral(red: 0, green: 0.758980453, blue: 0.1237550154, alpha: 1)
         case "purple":
             navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.5818830132, green: 0.2156915367, blue: 1, alpha: 1)
             self.view.backgroundColor = #colorLiteral(red: 0.5818830132, green: 0.2156915367, blue: 1, alpha: 1)
@@ -47,27 +47,43 @@ class LiveNowVC: UIViewController {
 
         motionModel.startAccelerometer()
         
-        timer = Timer.scheduledTimer(timeInterval: 9.9, target: self, selector: #selector(update), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(update), userInfo: nil, repeats: true)
         timer.fire()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController!.interactivePopGestureRecognizer!.isEnabled = false
+        self.navigationItem.hidesBackButton = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationItem.hidesBackButton = false
+    }
+    
     @objc func update(tm: Timer) {
-        if motionModel.score >= 300 {
+        if motionModel.score >= 130 {
             UIScreen.main.brightness = CGFloat(1.0)
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
-        } else if motionModel.score >= 250 {
+        } else if motionModel.score >= 110 {
             UIScreen.main.brightness = CGFloat(0.8)
-        } else if motionModel.score >= 200 {
-            UIScreen.main.brightness = CGFloat(0.7)
-        } else if motionModel.score >= 150 {
-            UIScreen.main.brightness = CGFloat(0.5)
         } else if motionModel.score >= 100 {
+            UIScreen.main.brightness = CGFloat(0.7)
+        } else if motionModel.score >= 90 {
+            UIScreen.main.brightness = CGFloat(0.5)
+        } else if motionModel.score >= 80 {
             UIScreen.main.brightness = CGFloat(0.3)
         } else {
             UIScreen.main.brightness = CGFloat(0.0)
         }
         socketModel.sendScore(score: Int(motionModel.score), color: socketModel.color)
         motionModel.score = 0.0
+        if !socketModel.isStart {
+            dismiss(animated: true, completion: nil)
+            if timer.isValid {
+                timer.invalidate()
+                UIScreen.main.brightness = CGFloat(0.8)
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
