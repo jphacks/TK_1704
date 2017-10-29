@@ -1,6 +1,6 @@
 # Power of us
 
-[![Power of us](Icon-App-76x76@3x.png)](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](https://www.youtube.com/channel/UC4PtjOfZTbVp9DwtJv82Lzg)
+[![Power of us](Icon-App-76x76@3x.png)](https://www.youtube.com/channel/UC4PtjOfZTbVp9DwtJv82Lzg)
 
 ## 製品概要
 ### Live x Tech
