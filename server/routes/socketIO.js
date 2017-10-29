@@ -13,10 +13,6 @@ db.action = new Datastore({
   filename: path.join(__dirname, '../NeDB/action'),
   autoload: true
 });
-// db.live = new Datastore({
-//   filename: path.join(__dirname, '../NeDB/live'),
-//   autoload: true
-// });
 
 
 //appモジュールを読み込む（このappには、www内ですでにポート番号が登録されているので、ポート番号を取得したことにもなる）
@@ -180,26 +176,53 @@ function socketIO() {
       })
         .then(findDoc => {
 
+          // const colorData = {
+          //   red: 0,
+          //   yellow: 0,
+          //   pink: 0,
+          //   green: 0,
+          //   purple: 0
+          // };
+
           const colorData = {
-            red: 0,
-            yellow: 0,
-            pink: 0,
-            green: 0,
-            purple: 0
+            red: {
+              all: 0,
+              shake: 0
+            },
+            yellow: {
+              all: 0,
+              shake: 0
+            },
+            pink: {
+              all: 0,
+              shake: 0
+            },
+            green: {
+              all: 0,
+              shake: 0
+            },
+            purple: {
+              all: 0,
+              shake: 0
+            }
           };
 
           findDoc.forEach((element) => {
-            switch (element.color) {
+            const eColor = element.color;
+            const eShake = element.shake;
+            switch (eColor) {
               case 'red':
               case 'yellow':
               case 'pink':
               case 'green':
               case 'purple':
-                colorData[element.color] = colorData[element.color] + element.scoreDuration;
+                colorData[eColor] = {
+                  all: colorData[eColor].all + element.scoreDuration,
+                  shake: colorData[eColor].shake + 1,
+                };
                 break;
             }
           });
-          console.log("all_color_sum")
           io.sockets.connected[socket.id].emit('all_color_sum', colorData);
         })
         .catch(error => {

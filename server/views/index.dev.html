@@ -54,21 +54,18 @@
 
 <body>
   <p>dev page</p>
-  <p id="name"></p>
-  <p id="id"></p>
-  <p id="color"></p>
-
+  <p id="name">user name</p>
+  <p id="id">user id</p>
+  <p id="color">user color</p>
+  <button id="btn2">スマホフ振る</button>
+  <button id="btn3">音楽開始</button>
+  <button id="btn4">音楽終了</button>
+  <button id="btn5">現在のチーム得点</button>
   <ul id="messages"></ul>
   <form action="">
     <input id="m" autocomplete="off" />
     <button>Send</button>
   </form>
-  <button></button>
-  <button id="btn2">server_from_app</button>
-  <button id="btn3">start_web_music</button>
-  <button id="btn4">stop_web_music</button>
-  <button id="btn5">read_json</button>
-  <p id="#p1"></p>
   <script src="/socket.io/socket.io.js"></script>
   <script src="https://code.jquery.com/jquery-3.1.1.slim.js" integrity="sha256-5i/mQ300M779N2OVDrl16lbohwXNUdzL/R2aVUXyXWA="
     crossorigin="anonymous"></script>
@@ -106,7 +103,14 @@
     // ユーザーidが帰ってくる
     socket.on('user_logged_in', (msg) => {
       console.log('user_logged_in', msg);
-      userId = msg.user.id;
+      const {
+        id,
+        name,
+        color
+      } = msg.user;
+      $('#name').text(`name: ${name}`);
+      $('#color').text(`color: ${color}`);
+      $('#id').text(`id: ${id}`);
     });
 
     $('#btn2').click(() => {
@@ -126,12 +130,12 @@
         }
       };
       console.log('server_from_app_data', data);
-      // アプリから加速度データが送られる
+      // アプリから加速度データを送る
       socket.emit('server_from_app', data);
     });
 
     socket.on('app_from_server', (data) => {
-      // const data = JSON.parse(json);
+      $('#messages').prepend($('<li>').text(JSON.stringify(data)));
       console.log('app_from_server', data);
     });
 
@@ -142,18 +146,20 @@
 
     // 音楽が開始された
     socket.on('start_music', (data) => {
+      $('#messages').prepend($('<li>').text(JSON.stringify(data)));
       console.log('start_music', data);
     });
 
 
 
-    // 音楽開始
+    // 音楽停止
     $('#btn4').click(() => {
       socket.emit('stop_web_music');
     });
 
-    // 音楽が開始された
+    // 音楽が停止された
     socket.on('stop_music', (data) => {
+      $('#messages').prepend($('<li>').text(JSON.stringify(data)));
       console.log('stop_music', data);
     });
 
@@ -163,6 +169,7 @@
     });
 
     socket.on('all_color_sum', (msg) => {
+      $('#messages').prepend($('<li>').text(JSON.stringify(msg)));
       console.log('all_color_sum', msg);
     });
 
