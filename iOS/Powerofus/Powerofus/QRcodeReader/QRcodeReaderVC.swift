@@ -117,7 +117,7 @@ class QRcodeReaderVC: UIViewController {
                             Alert.show(with: "形式が違います")
                         }
                         
-                        let alert: UIAlertController = UIAlertController(title: "red", message: payload, preferredStyle:  UIAlertControllerStyle.alert)
+                        let alert: UIAlertController = UIAlertController(title: color, message: "", preferredStyle:  UIAlertControllerStyle.alert)
                         let defaultAction: UIAlertAction = UIAlertAction(title: "join", style: UIAlertActionStyle.default, handler:{
                         // ボタンが押された時の処理を書く（クロージャ実装）
                         (action: UIAlertAction!) -> Void in
