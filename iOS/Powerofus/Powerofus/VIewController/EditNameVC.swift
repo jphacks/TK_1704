@@ -20,6 +20,7 @@ class EditNameVC: UIViewController, UITextFieldDelegate {
     }()
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let label = UILabel()
@@ -69,6 +70,11 @@ class EditNameVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        outputText.text = inputText.text
+        self.view.endEditing(true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -83,3 +89,6 @@ extension UITextField {
         self.layer.addSublayer(border)
     }
 }
+
+
+
