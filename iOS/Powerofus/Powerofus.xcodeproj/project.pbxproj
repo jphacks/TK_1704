@@ -694,6 +694,7 @@
 			baseConfigurationReference = 21D04F1B939E04F1552A6FC3 /* Pods-Powerofus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 922P3K9888;
 				INFOPLIST_FILE = Powerofus/Info.plist;
@@ -710,6 +711,7 @@
 			baseConfigurationReference = 1C86D9D8106DAAE6A8223BFD /* Pods-Powerofus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 922P3K9888;
 				INFOPLIST_FILE = Powerofus/Info.plist;
