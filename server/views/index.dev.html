@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Power of us</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font: 13px Helvetica, Arial;
+    }
+
+    form {
+      background: #000;
+      padding: 3px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    form input {
+      border: 0;
+      padding: 10px;
+      width: 90%;
+      margin-right: .5%;
+    }
+
+    form button {
+      width: 9%;
+      background: rgb(130, 224, 255);
+      border: none;
+      padding: 10px;
+    }
+
+    #messages {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #messages li {
+      padding: 5px 10px;
+    }
+
+    #messages li:nth-child(odd) {
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+  <p>dev page</p>
+  <p id="name"></p>
+  <p id="id"></p>
+  <p id="color"></p>
+
+  <ul id="messages"></ul>
+  <form action="">
+    <input id="m" autocomplete="off" />
+    <button>Send</button>
+  </form>
+  <button></button>
+  <button id="btn2">server_from_app</button>
+  <button id="btn3">start_web_music</button>
+  <button id="btn4">stop_web_music</button>
+  <button id="btn5">read_json</button>
+  <p id="#p1"></p>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.js" integrity="sha256-5i/mQ300M779N2OVDrl16lbohwXNUdzL/R2aVUXyXWA="
+    crossorigin="anonymous"></script>
+  <script>
+    const rooms = [
+      'red',
+      'yellow',
+      'pink',
+      'green',
+      'purple'
+    ];
+    const color = rooms[Math.floor(Math.random() * rooms.length)];
+    console.log('color', color);
+    const userName = 'beach3';
+    let userId = '';
+
+    const socket = io();
+
+    // サーバーと繋がった
+    socket.on('connect', () => {
+      console.log('connected!!!');
+
+      const data = {
+        user: {
+          color: color,
+          name: userName
+        }
+      };
+
+      console.log('join_room_data', data);
+      // room に入る
+      socket.emit('join_room', data);
+    });
+
+    // ユーザーidが帰ってくる
+    socket.on('user_logged_in', (msg) => {
+      console.log('user_logged_in', msg);
+      userId = msg.user.id;
+    });
+
+    $('#btn2').click(() => {
+      const data = {
+        user: {
+          id: userId,
+          name: userName,
+          color: color,
+        },
+        score: {
+          all: 1345,
+          duration: Math.floor(Math.random() * 20)
+        },
+        action: {
+          type: 'vertical',
+          strength: 3
+        }
+      };
+      console.log('server_from_app_data', data);
+      // アプリから加速度データが送られる
+      socket.emit('server_from_app', data);
+    });
+
+    socket.on('app_from_server', (data) => {
+      // const data = JSON.parse(json);
+      console.log('app_from_server', data);
+    });
+
+    // 音楽開始
+    $('#btn3').click(() => {
+      socket.emit('start_web_music');
+    });
+
+    // 音楽が開始された
+    socket.on('start_music', (data) => {
+      console.log('start_music', data);
+    });
+
+
+
+    // 音楽開始
+    $('#btn4').click(() => {
+      socket.emit('stop_web_music');
+    });
+
+    // 音楽が開始された
+    socket.on('stop_music', (data) => {
+      console.log('stop_music', data);
+    });
+
+    // 結果
+    $('#btn5').click(() => {
+      socket.emit('read_json');
+    });
+
+    socket.on('all_color_sum', (msg) => {
+      console.log('all_color_sum', msg);
+    });
+
+
+    $('form').submit(() => {
+      socket.emit('app', $('#m').val());
+      $('#m').val('');
+      return false;
+    });
+
+    socket.on('app', (msg) => {
+      $('#messages').append($('<li>').text(msg));
+    });
+  </script>
+</body>
+
+</html>
