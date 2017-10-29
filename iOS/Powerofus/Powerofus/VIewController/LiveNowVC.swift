@@ -47,27 +47,34 @@ class LiveNowVC: UIViewController {
 
         motionModel.startAccelerometer()
         
-        timer = Timer.scheduledTimer(timeInterval: 9.9, target: self, selector: #selector(update), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(update), userInfo: nil, repeats: true)
         timer.fire()
     }
     
     @objc func update(tm: Timer) {
-        if motionModel.score >= 300 {
+        if motionModel.score >= 60 {
             UIScreen.main.brightness = CGFloat(1.0)
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
-        } else if motionModel.score >= 250 {
+        } else if motionModel.score >= 50 {
             UIScreen.main.brightness = CGFloat(0.8)
-        } else if motionModel.score >= 200 {
+        } else if motionModel.score >= 40 {
             UIScreen.main.brightness = CGFloat(0.7)
-        } else if motionModel.score >= 150 {
+        } else if motionModel.score >= 30 {
             UIScreen.main.brightness = CGFloat(0.5)
-        } else if motionModel.score >= 100 {
+        } else if motionModel.score >= 20 {
             UIScreen.main.brightness = CGFloat(0.3)
         } else {
             UIScreen.main.brightness = CGFloat(0.0)
         }
         socketModel.sendScore(score: Int(motionModel.score), color: socketModel.color)
         motionModel.score = 0.0
+        if !socketModel.isStart {
+            dismiss(animated: true, completion: nil)
+            if timer.isValid {
+                timer.invalidate()
+                UIScreen.main.brightness = CGFloat(0.8)
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

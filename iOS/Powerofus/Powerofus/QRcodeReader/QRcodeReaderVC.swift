@@ -20,7 +20,13 @@ class QRcodeReaderVC: UIViewController {
     let label = UILabel()
     let backBtn: UIButton = {
         let btn = UIButton()
-        btn.backgroundColor = UIColor.red
+        let iv = UIImageView()
+        iv.image = UIImage(named: "batsu")
+        btn.addSubview(iv)
+        iv.snp.makeConstraints {
+            $0.size.equalTo(30)
+            $0.centerX.centerY.equalToSuperview()
+        }
         return btn
     }()
     

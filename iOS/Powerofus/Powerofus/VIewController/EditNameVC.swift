@@ -62,6 +62,7 @@ class EditNameVC: UIViewController, UITextFieldDelegate {
     
     @objc func checkDidTap() {
         if nameField.text == "" {
+            Alert.show(with: "なまえを入力してね", "")
         } else {
             Defaults[.userName] = nameField.text!
             print("なまえは\(Defaults[.userName])")
