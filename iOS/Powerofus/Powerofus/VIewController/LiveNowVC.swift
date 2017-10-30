@@ -75,6 +75,7 @@ class LiveNowVC: UIViewController {
         } else {
             UIScreen.main.brightness = CGFloat(0.0)
         }
+        print("\(motionModel.score)点を送信！")
         socketModel.sendScore(score: Int(motionModel.score), color: socketModel.color)
         motionModel.score = 0.0
         if !socketModel.isStart {

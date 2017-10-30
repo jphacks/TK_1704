@@ -35,7 +35,6 @@ final class MotionModel {
         accelerometerY = acceleration.y
         accelerometerZ = acceleration.z
         score += fabs(accelerometerX)
-        print(score)
     }
 }
 
