@@ -61,7 +61,7 @@ class LiveNowVC: UIViewController {
     }
     
     @objc func update(tm: Timer) {
-        if motionModel.score >= 130 {
+        if motionModel.score >= 120 {
             UIScreen.main.brightness = CGFloat(1.0)
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         } else if motionModel.score >= 110 {
