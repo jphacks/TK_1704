@@ -34,8 +34,9 @@ final class MotionModel {
         accelerometerX = acceleration.x
         accelerometerY = acceleration.y
         accelerometerZ = acceleration.z
-        score += fabs(accelerometerX)
-        print(score)
+        let scores = [accelerometerX, accelerometerY, accelerometerZ]
+        //一番得点が高い方向を加算
+        score += fabs(scores.max()!)
     }
 }
 
