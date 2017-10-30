@@ -61,16 +61,16 @@ class LiveNowVC: UIViewController {
     }
     
     @objc func update(tm: Timer) {
-        if motionModel.score >= 110 {
+        if motionModel.score >= 50 {
             UIScreen.main.brightness = CGFloat(1.0)
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
-        } else if motionModel.score >= 100 {
+        } else if motionModel.score >= 40 {
             UIScreen.main.brightness = CGFloat(0.8)
-        } else if motionModel.score >= 90 {
+        } else if motionModel.score >= 30 {
             UIScreen.main.brightness = CGFloat(0.7)
-        } else if motionModel.score >= 80 {
+        } else if motionModel.score >= 20 {
             UIScreen.main.brightness = CGFloat(0.5)
-        } else if motionModel.score >= 70 {
+        } else if motionModel.score >= 10 {
             UIScreen.main.brightness = CGFloat(0.3)
         } else {
             UIScreen.main.brightness = CGFloat(0.0)
