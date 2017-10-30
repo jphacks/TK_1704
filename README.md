@@ -49,3 +49,6 @@
 * iOSデバイス
 
 
+
+# 使い方
+<https://github.com/jphacks/TK_1704/blob/master/HowToUse.md>
